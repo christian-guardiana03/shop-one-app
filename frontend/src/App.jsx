@@ -5,6 +5,7 @@ import { useColorModeValue } from "./components/ui/color-mode";
 import CreatePage from "./pages/CreatePage";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import PhoneNumberCombinations from "./pages/PhoneNumberCombinations";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/create" element={<CreatePage />}/>
+        <Route path="/phone-number-combinations" element={<PhoneNumberCombinations />}/>
       </Routes>
     </Box>
   )

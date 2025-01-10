@@ -6,7 +6,22 @@ export const getProducts = async (req, res) => {
         const products = await Product.find({});
         res.status(200).json({ success: true, data: products });
     } catch (error) {
-        console.log("Error fetching the prducts.", error.message);
+        console.log("Error fetching the products.", error.message);
+        res.status(500).json({ success: true, message: "Server Error."});
+    }
+}
+
+export const getProductById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(500).json({ success: false, message: "Product not found." });
+        }
+        res.status(200).json({ success: true, data: product });
+    } catch (error) {
+        console.log("Error fetching the product.", error.message);
         res.status(500).json({ success: true, message: "Server Error."});
     }
 }
